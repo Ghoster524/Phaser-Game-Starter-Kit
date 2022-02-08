@@ -38,3 +38,17 @@ On the root of this project run on your terminal (if you want you can do this wi
 ```bash
   npm run watch
 ```
+
+#Tutorials
+
+##Section 2
+
+### Level1_animations
+Dit level bevat de volgende onderdelen van de tutorials:
+- Afbeelding inladen en toevoegen tot de scene
+- Animatie met een sprite
+- Animatie met een Atlas
+- Fucnties op een GameObject
+
+### Level1
+- 
