@@ -36,6 +36,10 @@ On the root of this project run on your terminal (if you want you can do this wi
 
 **Start the dev server**
 ```bash
+Wamp opstarten
+```
+of
+```bash
   npm run watch
 ```
 
