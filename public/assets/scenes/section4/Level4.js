@@ -1,4 +1,4 @@
-export default class Level3 extends Phaser.Scene {
+export default class Level1 extends Phaser.Scene {
     constructor() {
         super({
             key: 'Level4',
@@ -6,22 +6,15 @@ export default class Level3 extends Phaser.Scene {
     }
 
     preload() {
-        this.load.image('platform_tiles', '/assets/tiles/arcade_platformerV2-transparent.png');
-        this.load.tilemapTiledJSON('map', '/assets/tiles/2dgame/2dgame.json');
+        //
+        this.load.spritesheet('dude', '/assets/sprites/dude.png', {
+            frameWidth: 32,
+            frameHeight: 48,
+        });
     }
 
     create() {
-        const map = this.make.tilemap({
-            key: 'map',
-            tileWidth: 16,
-            tileHeight: 16,
-        });
-        const tileset = map.addTilesetImage('2dgame_tileset', 'platform_tiles');
-
-        const backgroundLayer = map.createStaticLayer('background', tileset, 0, 0);
-        const treeLayer = map.createStaticLayer('trees', tileset, 0, 0);
-        const grassLayer = map.createStaticLayer('grass', tileset, 0, 0);
-        const terrainLayer = map.createStaticLayer('terrain', tileset, 0, 0);
+        this.dude = this.add.sprite(100, 150, 'dude');
     }
 
     update(time, delta) {
