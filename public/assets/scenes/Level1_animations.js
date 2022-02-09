@@ -6,9 +6,9 @@ export default class Level1 extends Phaser.Scene {
     }
 
     preload() {
-        this.load.image('star', '/assets/img/star.png'); // load image
+        this.load.image('star', '/assets/sprites/star.png'); // load image
 
-        this.load.spritesheet('dude', '/assets/img/dude.png', {
+        this.load.spritesheet('dude', '/assets/sprites/dude.png', {
             frameWidth: 32,
             frameHeight: 48,
         });
