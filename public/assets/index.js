@@ -1,6 +1,6 @@
 // import { Game } from './phaser.min.js';
 import Intro from './scenes/Intro.js';
-import Level1 from './scenes/Level1.js';
+import Level1_basic_tiles from 'public/assets/scenes/Level1.js';
 
 var config = {
 	type: Phaser.AUTO,
@@ -21,7 +21,7 @@ var config = {
 			}
 		}
 	},
-	scene: [Level1]
+	scene: [Level1_basic_tiles]
 };
 
 var game = new Phaser.Game(config);
