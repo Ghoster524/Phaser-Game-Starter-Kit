@@ -17,24 +17,58 @@ export default class Level1 extends Phaser.Scene {
         this.star = this.add.image(300, 200, 'star')
             .setDepth(1);
 
-        this.player1 = this.physics.add
-            .sprite(120, 200, 'dude');
-        this.player2 = this.physics.add
-            .sprite(60, 200, 'dude')
+        this.player1 = this.add
+            .sprite(200, 200, 'dude');
+        this.player2 = this.add
+            .sprite(60, 200, 'dude');
 
-        // set world bounds
-        this.physics.world.setBoundsCollision();
+        this.player1AnimationTimeline();
+    }
 
-        this.player1.setCollideWorldBounds(true);
-        this.player2.setCollideWorldBounds(true);
+    player1AnimationTimeline() {
+        this.player1Timeline = this.tweens.timeline({
+            targets: this.player1,
+            ease: 'Linear',
+            duration: 1000,
+            loop: 2,
+            tweens: [
+                {
+                    x: '-=50',
+                    y: '-=50',
+                },
+                {
+                    x: '+=50'
+                },
+                {
+                    y: '+=50'
+                },
+                {
+                    x: '-=50'
+                },
+                {
+                    y: '-=50'
+                },
+            ],
+        });
+    }
 
-        /** colliding, hitting (touching, blocking) **/
-        this.physics.add.collider(this.player1, this.player2);
+    player2AnimationTween() {
+        this.tween = this.tweens.add({
+            targets: this.player1,
+            x: 400,
+            y: 50,
+            ease: 'Elastic',
+            duration: 1000,
+            yoyo: false,
+            onStart: () => {
+                //this.player1.
+            },
+            onStop: () => {
+            },
+        });
 
-        /** overlapping, triggering **/
-        /*this.physics.add.overlap(this.player1, this.player2, () => {
-            console.log('Player has earned a coin!');
-        });*/
+        // this.tween.pause();
+        // this.tween.resme();
     }
 
     update(time, delta) {
