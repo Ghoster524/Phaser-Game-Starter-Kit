@@ -18,7 +18,7 @@ export default class Level1 extends Phaser.Scene {
             .setDepth(1);
 
         this.player1 = this.add
-            .sprite(200, 200, 'dude');
+            .sprite(200, 50, 'dude');
         this.player2 = this.add
             .sprite(60, 200, 'dude');
 
@@ -28,25 +28,29 @@ export default class Level1 extends Phaser.Scene {
     player1AnimationTimeline() {
         this.player1Timeline = this.tweens.timeline({
             targets: this.player1,
-            ease: 'Linear',
-            duration: 1000,
+            ease: 'Power2',
+            duration: 2000,
             loop: 2,
+            x: this.player1.x,
+            y: this.player1.y,
+            onLoop: () => {
+            },
             tweens: [
                 {
-                    x: '-=50',
-                    y: '-=50',
+                    y: this.player1.y + 60,
+                    x: this.player1.x + 60,
                 },
                 {
-                    x: '+=50'
+                    x: this.player1.x,
+                    y: this.player1.y + 120,
                 },
                 {
-                    y: '+=50'
+                    x: this.player1.x - 60,
+                    y: this.player1.y + 60,
                 },
                 {
-                    x: '-=50'
-                },
-                {
-                    y: '-=50'
+                    y: this.player1.y,
+                    x: this.player1.x,
                 },
             ],
         });
